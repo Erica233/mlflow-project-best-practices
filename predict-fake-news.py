@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-import os
-os.environ["DATABRICKS_TOKEN"] = "dapi19071d5dfd98a338b5e203d6eaca857f-3"
+#import os
+#os.environ["DATABRICKS_TOKEN"] = "dapi19071d5dfd98a338b5e203d6eaca857f-3"
 
 import os
 import requests
