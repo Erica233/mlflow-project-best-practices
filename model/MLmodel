@@ -1,5 +1,4 @@
 artifact_path: model
-databricks_runtime: 10.3.x-cpu-ml-scala2.12
 flavors:
   python_function:
     env: conda.yaml
@@ -10,8 +9,8 @@ flavors:
     pickled_model: model.pkl
     serialization_format: cloudpickle
     sklearn_version: 0.24.1
-model_uuid: 577a76cecec1442b949cd476a47acc95
-run_id: 51c0348482e042ea8e4b7983ab6bff99
+model_uuid: c3f3f756d2ad43ff964d3e97dabade8f
+run_id: 30a359ffc3644402aec9959c5d316bec
 saved_input_example_info:
   artifact_path: input_example.json
   pandas_orient: split
@@ -24,4 +23,4 @@ signature:
     "title_without_stopwords", "type": "string"}, {"name": "text_without_stopwords",
     "type": "string"}, {"name": "hasImage", "type": "double"}]'
   outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "object", "shape": [-1]}}]'
-utc_time_created: '2022-03-12 21:38:00.748047'
+utc_time_created: '2022-03-26 18:47:56.118129'

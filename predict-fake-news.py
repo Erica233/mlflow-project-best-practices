@@ -6,6 +6,8 @@ import os
 import requests
 import pandas as pd
 
+'''
+# real news
 my_data = {
     "author": {0: "Jacques de Seingalt"},
     "published": {0: "2016-11-24T03:01:28.961+02:00"},
@@ -19,6 +21,21 @@ my_data = {
     "text_without_stopwords": {0: "saker message current saker messages russia celebrates unity day liberation moscow polish roman papists army views november comments scotts corner scott national unity day first celebrated november commemorates popular uprising lead prince dmitry pozharsky meat merchant kuzma minin ejected alien occupying forces polish roman papists army moscow november generally end time troubles foreign interventions russia name alludes idea classes russian society willingly united preserve russian statehood demise seemed inevitable even though neither tsar patriarch guide recently episode made russian movie minin pozharsky liberation moscow triptych russian land artist yuri pantyukhin russia muscovites celebrate unity day capital river dance simferopol crimea russia putin patriarch kirill bless new monument vladimir great nov president vladimir putin unveiled new monument russias first christian leader vladimir great moscow friday opening ceremony took place meters kremlin walls coincided russian national unity day vladimir putin russian president russian holiness respected muscovites dear friends greet congratulate opening monument saint equaltoapostles prince vladimir big significant event moscow whole country russian compatriots symbolic held national unity day centre capital near walls ancient kremlin heart russia vladimir putin russian president russian strong moral support cohesion unity helped ancestors overcome difficulties live win glory fatherland strengthen power greatness generation generation today duty stand together modern threats challenges basing spiritual precepts invaluable traditions unity concord move forward ensuring continuity thousandyear history patriarch kirill moscow russia russian monument prince vladimir symbol unity peoples farther peoples historical rus currently living within borders many states monument farther may everywhere children live contradiction bad children forget father essential saker trenches emerging multipolar world first comment leave reply click get info formatting leave name field empty want post anonymous preferable choose name becomes clear said email address mandatory either website automatically checks spam please refer moderation policies details check make sure comment mistakenly marked spam takes time effort please patient comment appears thanks replies comment maximum formating examples use writingbbold textb results bold text iitalic texti results italic text also combine two formating tags example get bolditalic textememphasized textem results emphasized text strongstrong textstrong results strong text qa quote textq results quote text quotation marks added automatically citea phrase block text needs citedcite results phrase block text needs cited blockquotea heavier version quoting block textblockquote results heavier version quoting block text span several lines use possibilities appropriately meant help create follow discussions better way assist grasping content value comment quickly last leasta hrefhttplinkaddresscomname linka results name link need use special character paragraphs need anymore write like paragraphs separated live preview appears automatically start typing text area show comment look like send think confusing ignore code write like search articles"},
     "hasImage": {0: 0}
 }
+'''
+# fake news
+my_data = {
+    "author": {0: "No Author"},
+    "published": {0: "2016-11-02T00:17:31.986+02:00"},
+    "title": {0: "video beautiful listen to these doctors talk about the first time they learned about stomachs"},
+    "text": {0: "email ever wonder whats on the mind of todays most notable people well dont miss our unbelievable roundup of the best and most talked about quotes of the day  my friends have somehow gotten it into their heads that im attracted to ghosts so every day ill get texts saying i just met a great handsome ghost i want to set you up with for marriage i want to lay this rumor to rest i think ghosts are as ugly as rats  mindy kaling on ghosts  the second my successor swears in im going to start chasing my secret service members and they know it  barack obama on what hell be doing on january  at  pm  i just remembered another fact about jaws  the sharks mouth is called jaws not the shark itself  steven spielberg"},
+    "language": {0: "english"},
+    "site_url": {0: "clickhole.com"},
+    "main_img_url": {0: "http://images.onionstatic.com/clickhole/3435/5/16x9/1200.jpg"},
+    "type": {0: "satire"},
+    "title_without_stopwords": {0: "video beautiful listen doctors talk first time learned stomachs"},
+    "text_without_stopwords": {0: "email ever wonder whats mind todays notable people well dont miss unbelievable roundup best talked quotes day friends somehow gotten heads im attracted ghosts every day ill get texts saying met great handsome ghost want set marriage want lay rumor rest think ghosts ugly rats mindy kaling ghosts second successor swears im going start chasing secret service members know barack obama hell january pm remembered another fact jaws sharks mouth called jaws shark steven spielberg"},
+    "hasImage": {0: 1}
+}
 df = pd.DataFrame(data=my_data)
 
 
@@ -31,7 +48,7 @@ def create_tf_serving_json(data):
 
 
 def score_model(dataset):
-    url = "https://adb-4085387484934385.5.azuredatabricks.net/model/Best-Fake-News-3-14/1/invocations"
+    url = "https://adb-2331954117691987.7.azuredatabricks.net/model/fake-news/1/invocations"
     headers = {"Authorization": f'Bearer {os.environ.get("DATABRICKS_TOKEN")}'}
     data_json = (
         dataset.to_dict(orient="split")
