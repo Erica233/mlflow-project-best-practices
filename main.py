@@ -12,6 +12,8 @@ from fastapi.encoders import jsonable_encoder
 class Story(BaseModel):
     text: str
 
+'''
+# fake news
 def predict(text):
     print(f"Accepted payload: {text}")
     my_data = {
@@ -28,6 +30,30 @@ def predict(text):
         "title_without_stopwords": {0: "aliens are coming to invade earth"},
         "text_without_stopwords": {0: "aliens are coming to invade earth"},
         "hasImage": {0: 1.0},
+    }
+    data = pd.DataFrame(data=my_data)
+    result = loaded_model.predict(pd.DataFrame(data))
+    return result
+'''
+
+#real news
+#"text": "they are all treasonous lying narcissistical sociopathic bastardswhen trump says they need to drain the swamp or whateverhes not wrong but whos going to have hes back when hes dredging the filth out of the swamp that is political washington and all the corporate skid marks along with the corrupt banksters and especially the fed reservewho"
+def predict(text):
+    print(f"Accepted payload: {text}")
+    my_data = {
+        "author": {0: "Jerry Miller"},
+        "published": {0: "2016-10-26T22:46:21.055+03:00"},
+        "title": {0: "no title"},
+        "text": {0: text},
+        "language": {0: "english"},
+        "site_url": {0: "westernjournalism.com"},
+        "main_img_url": {
+         0: "http://static.westernjournalism.com/wp-content/uploads/2016/08/sheriffjoearpaio.jpg"
+        },
+        "type": {0: "bias"},
+        "title_without_stopwords": {0: "title"},
+        "text_without_stopwords": {0: "everyone see construciton worker took drill damaged mr trumps star hollywood walk fame boy bunch evil doers bet hillary obama thugs wonder much paid balloney obama visited california yesterday coindence poor losers"},
+        "hasImage": {0: 1},
     }
     data = pd.DataFrame(data=my_data)
     result = loaded_model.predict(pd.DataFrame(data))
